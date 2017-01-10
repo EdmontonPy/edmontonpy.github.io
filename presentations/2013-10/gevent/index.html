@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>gevent</title>
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+    <!--Add support for earlier versions of Internet Explorer -->
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="lib/js/head.min.js"></script>
+    <style>
+    .reveal {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+        text-transform: none;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: normal;
+        text-shadow: none;
+    }
+
+    .reveal blockquote {
+        padding: 1em;
+    }
+
+    .reveal pre code {
+        margin: 0 auto;
+        max-height: none;
+    }
+
+    .reveal table {
+        font-family: 'Courier', sans-serif;
+        font-size: 80%;
+        margin: 0 auto;
+        border-spacing: 1em 0.2em;
+    }
+
+    .reveal td.right {
+        text-align: right;
+    }
+
+    .evil .state-background {
+        background: rgba( 100, 0, 0, 0.5 );
+    }
+
+    </style>
+</head>
+
+<body>
+    <!-- Wrap the entire slide show in a div using the "reveal" class. -->
+    <div class="reveal">
+        <!-- Wrap all slides in a single "slides" class -->
+        <div class="slides">
+
+            <!-- ALL SLIDES GO HERE -->
+            <!-- Each section element contains an individual slide -->
+
+            <section data-markdown>
+                <script type="text/template">
+                    ## Async I/O with
+                    ## `gevent`
+                </script>
+            </section>
+
+            <section>
+                <h3>I/O is slow</h3>
+                <h4>Numbers by Jeff Dean (abridged)</h4>
+                <table>
+                    <tr><td>L2 cache reference</td>                             <td class="right">7 ns</td></tr>
+                    <tr><td>Main memory reference</td>                        <td class="right">100 ns</td></tr>
+                    <tr><td>Send 2K bytes over 1 Gbps network</td>         <td class="right">20,000 ns</td></tr>
+                    <tr><td>Disk seek</td>                             <td class="right">10,000,000 ns</td></tr>
+                    <tr><td>Send packet CA->Netherlands->CA</td>      <td class="right">150,000,000 ns</td></tr>
+                </table>
+            </section>
+
+            <section>
+                <h3>Synchronous I/O</h3>
+                <pre><code data-trim>
+import socket
+sock = socket.socket()
+
+...
+
+def do_important_work():
+    sock.recv(1024)
+    logger.info('Did 1024 bytes of I/O')
+
+    sock.send('hello')
+
+    sock.recv(512)
+    logger.info('Did 512 bytes of I/O')
+
+    ...
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Async with callbacks</h3>
+                <pre><code data-trim>
+import socket
+sock = socket.socket()
+
+...
+
+def do_important_work():
+    register_callback(sock.recv, 1024, first_done)
+
+def first_done(event):
+    logger.info('Did 1024 bytes of I/O')
+    register_callback(sock.recv, 512, second_done)
+
+def second_done(event):
+    logger.info('Did 512 bytes of I/O')
+    register_callback(...)
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Event loop</h3>
+                <pre><code data-trim>
+while True:
+    events = wait_for_an_IO_device_to_be_ready()
+    for event in events:
+        callback, args = dispatch_table[event]
+        callback(event, *args)
+                </code></pre>
+            </section>
+
+            <section>
+                <h3><code>gevent</code></h3>
+                <blockquote>
+                    <span class="fragment fade-out">"<code>gevent</code>... uses <code>greenlet</code> to provide</span><br>
+                    a high-level synchronous API<br>
+                    on top of the <code>libevent</code> event loop."
+                </blockquote>
+            </section>
+
+            <section>
+                <h3><code>gevent</code> style</h3>
+                <pre><code data-trim>
+from gevent import socket
+sock = socket.socket()
+
+...
+
+def do_important_work():
+    sock.recv(1024)
+    logger.info('Did 1024 bytes of I/O')
+
+    sock.send('hello')
+
+    sock.recv(512)
+    logger.info('Did 512 bytes of I/O')
+
+    ...
+                </code></pre>
+            </section>
+
+            <section>
+                <h1>How?</h1>
+            </section>
+
+            <section>
+                <h3><code>gevent</code></h3>
+                <blockquote>
+                    <code>gevent</code>... uses <code>greenlet</code> <span class="fragment fade-out">to provide<br>
+                    a high-level synchronous API<br>
+                    on top of the <code>libevent</code> event loop."</span>
+                </blockquote>
+            </section>
+
+            <section>
+                <h3><code>greenlet</code></h3>
+                <blockquote>"Lightweight in-process concurrent programming"</blockquote>
+                <span class="fragment">... you mean threads?</span>
+            </section>
+
+            <section>
+                <h3>Threads</h3>
+                <ul>
+                    <li>More overhead</li>
+                    <li>Locking / race conditions</li>
+                    <li>Scheduled by the OS</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Greenlets</h3>
+                <ul>
+                    <li>Super lightweight</li>
+                    <li>Explicit switching</li>
+                    <li>Serialized execution</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3><code>greenlet</code> example</h3>
+                <pre><code data-trim>
+from greenlet import greenlet
+
+def hi_bye():
+    print 'hi'
+    g2.switch()
+    print 'bye'
+
+def middle():
+    print '...'
+    g1.switch()
+
+g1 = greenlet(hi_bye)
+g2 = greenlet(middle)
+g1.switch()
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>greenlets in <code>gevent</code></h3>
+                <ol>
+                    <li class="fragment">Greenlet performs "blocking" I/O call</li>
+                    <li class="fragment">Call yields control back to "hub" greenlet</li>
+                    <li class="fragment">Hub greenlet swiches to next runnable greenlet</li>
+                </ol>
+            </section>
+
+            <section>
+                <h3><code>gevent</code> style</h3>
+                <pre><code data-trim>
+from gevent import socket
+sock = socket.socket()
+
+...
+
+def do_important_work():
+    sock.recv(1024)
+    logger.info('Did 1024 bytes of I/O')
+
+    sock.send('hello')
+
+    sock.recv(512)
+    logger.info('Did 512 bytes of I/O')
+
+g1 = gevent.spawn(do_important_work)
+g2 = gevent.spawn(do_important_work)
+gevent.joinall([g1, g2])
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Co-operation</h3>
+                In order to co-operate, a greenlet must eventually yield by
+                performing a "greened" blocking operation. So what if a
+                library isn't co-operative?
+            </section>
+
+            <section data-state="evil">
+                <h3>Monkey patching (is evil)</h3>
+                <pre><code data-trim>
+from gevent import monkey
+monkey.patch_socket()
+
+import socket
+sock = socket.socket()
+...
+                </code></pre>
+            </section>
+
+            <section data-state="evil">
+                <h3>Why is it evil?</h3>
+                <ul>
+                    <li class="fragment">Don't mutate global state</li>
+                    <li class="fragment">Modules: the ultimate global state</li>
+                    <li class="fragment">Only use to make other packages cooperative</li>
+                    <li class="fragment">Will not affect blocking C extensions!</li>
+                    <ul>
+                        <li class="fragment">Look for "green" versions of your favorite packages</li>
+                    </ul>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Summary</h3>
+                <ul>
+                    <li class="fragment">Asynchronous code in a synchronous style</li>
+                    <li class="fragment">Lightweight, cooperatively scheduled threads</li>
+                    <li class="fragment">Requires other modules to be cooperative too</li>
+                    <li class="fragment">Monkey patch or use "green" versions</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="http://media.codysoyland.com/pdf/django-on-gevent.pdf">Django on Gevent</a></li>
+                    <li><a href="http://www.slideshare.net/seanmcq/gevent-whats-the-point">Gevent: What's the point?</a></li>
+                    <li><a href="http://sdiehl.github.io/gevent-tutorial/"><code>gevent</code> For the Working Python Developer</a></li>
+                </ul>
+            </section>
+
+            <section data-state="blackout">
+                <h3>End</h3>
+            </section>
+            </div>
+    </div>
+    <script src="js/reveal.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+    <script>
+        // Required, even if empty.
+        Reveal.initialize({
+            controls: false,
+            center: true,
+
+            dependencies: [
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+    </script>
+</body>
+</html>

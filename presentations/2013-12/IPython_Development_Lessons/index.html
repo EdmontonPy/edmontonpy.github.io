@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>IPython Notebook: Development Lessons</title>
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--Add support for earlier versions of Internet Explorer -->
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <script src="lib/js/head.min.js"></script>
+    <style>
+    .reveal {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+        text-transform: none;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: normal;
+        text-shadow: none;
+    }
+
+    .reveal blockquote {
+        padding: 1em;
+    }
+
+    .reveal pre code {
+        margin: 0 auto;
+        max-height: none;
+    }
+
+    .reveal table {
+        font-family: 'Courier', sans-serif;
+        font-size: 80%;
+        margin: 0 auto;
+        border-spacing: 1em 0.2em;
+    }
+
+    .reveal td.right {
+        text-align: right;
+    }
+
+    </style>
+</head>
+
+<body>
+    <!-- Wrap the entire slide show in a div using the "reveal" class. -->
+    <div class="reveal">
+        <!-- Wrap all slides in a single "slides" class -->
+        <div class="slides">
+
+            <!-- ALL SLIDES GO HERE -->
+            <!-- Each section element contains an individual slide -->
+
+            <section>
+                <aside class="notes">
+                        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                </aside>
+                <h2>IPython Notebook:</h2>
+                <h2>Development Lessons</h2>
+                <h3><a href="https://twitter.com/bforst" target="_blank">Brian Forst</a></h3>
+            </section>
+
+            <section>
+                <h2>Not your typical intro</h2>
+                <p>&nbsp</p>
+                <h3 class="fragment">We won’t dive into:</h3>
+                <ul>
+                    <li class="fragment">Rich display</li>
+                        <ul>
+                            <li class="fragment">equations, images, sounds, movies, graphs, HTML</li>
+                        </ul>
+                    <li class="fragment">ZeroMQ architecture</li>
+                    <li class="fragment">Debugger</li>
+                    <li class="fragment">Parallel computing</li>
+                    <li class="fragment">Securely sharing a notebook server</li>
+                    <li class="fragment">Notebook Viewer</li>
+                    <li class="fragment">etc.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>My History</h3>
+                    <p class="fragment">PyCon 2012</p>
+                    <p class="fragment">Installing</p>
+                    <p class="fragment">Hyping</p>
+                    <p class="fragment">PyCon 2013</p>
+                    <p class="fragment">Learning</p>
+            </section>
+
+            <section>
+                <h3>Learning</h3>
+                <p class="fragment">Requests</p>
+                <p class="fragment">HTTP</p>
+                <p class="fragment">Server idiosyncracies</p>
+            </section>
+
+            <section>
+                <h2>It was amazing!</h2>
+            </section>
+
+            <section>
+                <h2><a href="http://nbviewer.ipython.org/github/EdmontonPy/presentations/blob/gh-pages/2013-12-09/IPython_Development_Lessons/Notebook_Talk.ipynb" target="_blank">Let’s see why</a></h2>
+            </section>
+
+            <section>
+                <h3>Why did this succeed?</h3>
+            </section>
+
+            <section>
+                <h3><a href="http://nbviewer.ipython.org/gist/jiffyclub/5165431#Cognitive-Load" target="_blank">Reduced Cognitive Load</a></h3>
+                <p class="fragment">Intrinsic</p>
+                <p class="fragment">Germane</p>
+                <p class="fragment">Extraneous</p>
+            </section>
+
+
+            <section>
+                <h3>Clear Code Interfaces</h3>
+                    <p class="fragment">Interfaces above and below were well-specified</p>
+                    <p class="fragment">Internal interfaces were in flux</p>
+            </section>
+
+            <section>
+                <h3>Easy Access to Levels of Abstraction</h3>
+                <blockquote class="fragment">
+                    "Understand one level of abstraction below the one you normally work at."
+                </blockquote>
+                <p class="fragment">Corollary</p>
+                <blockquote class="fragment">
+                    "Have ready access to the layer of abstraction below you."
+                </blockquote>
+            </section>
+
+            <section>
+                <h3>Fast Iteration</h3>
+                <blockquote class="fragment">
+                    "The power of successive refinement and iterative development. Impossible without continuous aggressive refactoring." - <a href="https://twitter.com/unclebobmartin/status/407857290336026625" target="_blank">Uncle Bob Martin</a>
+                </blockquote>
+            </section>
+
+            <section>
+                <h3>Small Pieces, Well Factored</h3>
+                <p class="fragment">Screen-space constraints forced me to write smaller functions, classes, etc.</p>
+                <p class="fragment">Fast iteration helped me mercilessly refactor.</p>
+            </section>
+
+            <section>
+                <h3>Bonus</h3>
+                <p class="fragment">Final, working code was there at the end</p>
+            </section>
+
+            <section>
+                <h3>Why did this succeed?</h3>
+                <ul>
+                    <li>Reduced Cognitive Load</li>
+                    <li>Clear Code Interfaces</li>
+                    <li>Easy Access to Levels of Abstraction</li>
+                    <li>Fast Iteration</li>
+                    <li>Small Pieces, Well Factored</li>
+                </ul>
+            </section>
+
+            <section data-state="blackout">
+                <h3>Questions?</h3>
+            </section>
+
+            <section>
+                <h3>Installation</h3>
+                <ul>
+                    <li>Pip</li>
+                    <ul>
+                        <li><code>pip install --use-wheel ipython pyzmq jinja2 tornado</code></li>
+                    </ul>
+                    <li>Pre-built Python Distributions</li>
+                    <ul>
+                        <li>Anaconda</li>
+                        <li>Enthought</li>
+                    </ul>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Resources</h3>
+                <ul>
+                    <li>PyCon 2013 Tutorial: IPython in-depth</li>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=bP8ydKBCZiY" target="_blank">Video</a></li>
+                        <li><a href="https://github.com/ipython/ipython-in-depth" target="_blank">Notebook Repository</a></li>
+                    </ul>
+                    <li>Teaching with the IPython Notebook</li>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=j91xUVgbQ9M" target="_blank">Video</a></li>
+                        <li><a href="http://nbviewer.ipython.org/5165431" target="_blank">Notebook</a></li>
+                    </ul>
+                    <li><a href="http://ipython.org/notebook.html" target="_blank">IPython Notebook</a></li>
+                    <li><a href="http://nbviewer.ipython.org/" target="_blank">IPython Notebook Viewer</a></li>
+                    <li><a href="https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks" target="_blank">Gallery of Interesting Notebooks</a></li>
+                    <li><a href="https://store.continuum.io/cshop/anaconda/" target="_blank">Anaconda Python</a></li>
+                    <li><a href="https://www.enthought.com/products/canopy/" target="_blank">Enthought Python</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+    <script src="js/reveal.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+    <script>
+        // Required, even if empty.
+        Reveal.initialize({
+            controls: false,
+            center: false
+        });
+    </script>
+</body>
+</html>

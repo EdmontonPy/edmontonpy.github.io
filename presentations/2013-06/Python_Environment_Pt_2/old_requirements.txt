@@ -1,0 +1,9 @@
+# For package management
+distribute==0.6.33
+
+# Fancy date stuff
+python-dateutil==2.0
+six==1.3.0
+
+# Libraries for getting out to the internet
+requests==1.1.0

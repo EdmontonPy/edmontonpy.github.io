@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Summarizing Text in Python</title>
+
+    <meta name="description" content="An introduction to summarizing text blobs using Python.">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <img src="reddit-home.gif" >
+	</section>
+
+	<section>
+	  <img src="reddit.png" />
+	</section>
+
+	<section>
+	  <h1>Summarizing Text in Python</h1>
+	  <p>
+	    <small>by <a href="https://github.com/mattgallivan">Matt Gallivan</a></small>
+	  </p>
+	</section>
+
+	<section>
+	  <pre><code data-trim contenteditable>
+def summarize(text, num_summaries=3):
+    '''Create small summaries of a larger text.'''
+    summaries = []
+    # ...
+    return summaries[:num_summaries]
+	  </code></pre>
+	</section>
+
+	<section>
+	  <h2>How?</h2>
+	</section>
+
+	<section>
+	  <h2>TextRank</h2>
+	  <h6 class="fragment">1. Break text into pieces.</h6>
+	  <h6 class="fragment">2. Connect the pieces in a graph.</h6>
+	  <h6 class="fragment">3. Find the most important piece.</h6>
+	</section>
+
+	<section>
+	  <section>
+	    <h2>1. Break Text Into Pieces</h2>
+	  </section>
+	  <section>
+	    <h2>Sentences!</h2>
+
+	    <pre><code data-trim contenteditable>
+import re
+
+def sentences(text):
+	'''Break text blob into sentences.'''
+	ends = re.compile('[.?!]')
+	return ends.split(text)
+	    </code></pre>
+	  </section>
+	  <section>
+	    <h2>Better Sentences!</h2>
+	    <pre><code data-trim contenteditable>
+from nltk.tokenize import sent_tokenize
+
+def sentences(text):
+	'''Break text blob into sentences.'''
+	return sent_tokenize(text)
+	    </code></pre>
+	  </section>
+	</section>
+
+	<section>
+	  <section>
+	    <h2>2. Connect the pieces in a graph</h2>
+	  </section>
+
+	  <section>
+	    <h2>Graph?</h2>
+	  </section>
+
+	  <section>
+	    <img src="graph.png">
+	  </section>
+
+	  <section>
+	    <h2>Edges</h2>
+	    <pre><code data-trim contenteditable>
+def connect(nodes):
+	'''Return a list of edges connecting the nodes,
+        where the edges are given a weight based on their
+        similarity.'''
+        return [(start, end, similarity(start, end))
+                             for start in nodes
+                             for end in nodes
+                             if start is not end]
+	    </code></pre>
+	    <pre class="fragment"><code data-trim contenteditable>
+def similarity(c1, c2):
+	'''Return the amount of similarity between two chunks.'''
+        return len(common_words(c1, c2)) /
+               (log(len(words(c1))) + log(len(words(c2)))
+	    </code></pre>
+	  </section>
+	</section>
+
+	<section>
+	  <section>
+	    <h2>3. Find the most important piece</h2>
+	  </section>
+
+	  <section>
+	    <h2>PageRank</h2>
+	    <h4>What websites are the most important?</h4>
+	    <pre><code data-trim contenteditable>
+# INPUT:
+nodes = get_all_websites()
+edges = connect_all_websites_that_link_to_each_other(nodes)
+
+# OUTPUT
+pagerank(nodes, edges) # =>
+
+{
+    'www.google.com' : 40000000000000000,
+    'www.yahoo.com' : 25,
+    'www.reddit.com' : 23,
+    'news.ycombinator.com' : 14,
+    # ...
+}
+	    </code></pre>
+	  </section>
+
+	  <section>
+	    <h2>PageRank</h2>
+	    <h4>Use sentences instead of websites!</h4>
+	    <pre><code data-trim contenteditable>
+# INPUT:
+nodes = sentences(text)
+edges = connect(nodes)
+
+# OUTPUT
+pagerank(nodes, edges) # =>
+
+{
+    'A really good summary sentence!' : 243,
+    'Pretty good at summarizing - maybe too specific though' : 165,
+    'Not that great.' : 142,
+    # ...
+}
+	    </code></pre>
+
+	  </section>
+
+	  <section>
+	    <h2>PageRank</h2>
+	    <pre><code data-trim contenteditable>
+import networkx as nx
+
+def rank(nodes, edges):
+    '''Return a dictionary containing the scores for each vertex.'''
+    graph = nx.DiGraph()
+    graph.add_nodes_from(nodes)
+    graph.add_weighted_edges_from(edges)
+    return nx.pagerank(graph)
+	    </code></pre>
+	  </section>
+
+	</section>
+	<section>
+	  <h2>Putting It Together</h2>
+	  <pre><code data-trim contenteditable>
+def summarize(text, num_summaries=3):
+    '''Create small summaries of a larger text.'''
+    nodes = sentences(text)
+    edges = connect(nodes)
+    scores = rank(nodes, edges)
+    return sorted(scores, key=data.get)[:num_summaries]
+	  </code></pre>
+	</section>
+
+	<section>
+	  <h2>Adobe Customer Data</h2>
+	  <h4 class="fragment">
+	    "Very recently, Adobe's security team discovered sophisticated
+	    attacks on our network, involving illegal access of customer information as well as source code for numerous Adobe products", Arkin said in a blog post.
+	  </h4>
+	</section>
+
+	<section>
+	  <h2>Twitter IPO</h2>
+	  <h4 class="fragment">
+	    The company unsealed the documents on Thursday, disclosing that it generated 317 million in revenue in 2012 and that it had more than 218 million active users as of the end of June, up 44 percent from a year earlier.
+	    </h4>
+
+	  <h4 class="fragment">
+	    Twitter has revealed its highly anticipated stock offering, with the hugely popular messaging platform stating that it seeks to raise $1bn.
+	    </h4>
+	  </section>
+	
+
+	<section>
+	  <h2>Green Eggs and Ham</h2>
+
+	    <h4 class="fragment">I do not like them in a house.</h4>
+	    <h4 class="fragment">I do not like them in a box.</h4>
+	    <h4 class="fragment">I will not eat them in a house.</h4>
+	    <h4 class="fragment">I do not like them with a fox.</h4>
+	    <h4 class="fragment">I do not like them with a mouse.</h4>
+
+	    <h4 class="fragment">And I would eat them with a goat... And I will eat them, in the rain.</h4>
+	    <h4 class="fragment">And I will eat them, in the rain.</h4>
+	</section>
+
+	<section>
+	  <h2>In Conclusion...</h2>
+	  <h4 class="fragment">1. Machine learning doesn't have to be hard</h4>
+	  <h4 class="fragment">2. There are a ton of libraries to help you</h4>
+	  <h4 class="fragment">3. Machine learning is good</h4>
+	</section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>

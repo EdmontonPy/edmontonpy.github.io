@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Contributing to Open Source as a Beginner</title>
+
+<!-- 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML"> -->
+		<meta name="author" content="Aden Grue">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+		.pink .state-background {
+            background: rgba( 255, 192, 204, 1.0 );
+    	}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>Contributing to</h2>
+					<h2>Open Source</h2>
+					<h2>as a Beginner</h2>
+					<!-- clarify what is meant by contributions (issues/documentation) -->
+				</section>
+
+<!-- 				<section data-transition="fade" data-state="pink">
+					<div>
+						<h1 style="font-family: 'Damion', cursive;">My First</h1>
+						<h1 style="font-family: 'Damion', cursive;">Pull Request</h1>
+					</div>
+				</section> -->
+
+				<section>
+					<h2>Open source packages</h2>
+					<h1 class="fragment roll-in">☺</h1>
+				</section>
+
+				<section>
+					<h2>Bugs in open</h2><h2>source packages</h2>
+					<h1 class="fragment roll-in">☹</h1>
+				</section>
+
+				<section>
+					<h2>Fix plz</h2>
+					<h2 style="color: #f00">⇓</h2>
+					<img src="images/GitHub_issues.png"></img>
+				</section>
+
+				<section>
+					<h2>Find the bug</h2>
+					<pre><code data-trim>
+def fix_up_paths(items):
+    for item in items:
+        name, path, type = item
+        if not os.path.isfile(path):
+            path = fix_up_path(path)
+
+            items.remove(item)
+            items.append((name, path, type))
+
+    return items
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Fix the bug</h2>
+					<pre><code data-trim>
+def fix_up_paths(items):
+    new_items = []
+    for item in items:
+        name, path, type = item
+        if not os.path.isfile(path):
+            path = fix_up_path(path)
+
+        new_items.append((name, path, type))
+    return new_items
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Then I used my locally fixed version forever.</h2>
+					<h1 class="fragment roll=in">The End</h1>
+				</section>
+
+				<section>
+					<h2>Recipe for a pull request</h2>
+					<ul>
+						<li class="fragment roll-in">Fork the repository on GitHub</li>
+						<li class="fragment roll-in">Put changes in a branch</li>
+						<li class="fragment roll-in">Run tests</li>
+						<li class="fragment roll-in">(Write a test?)</li>
+						<!-- Read contribution guidelines -->
+					</ul>
+				</section>
+
+				<section>
+					<h2>Push the Scary Button</h2>
+					<div class="fragment roll-in">
+						<h2 style="color: #f00">⇓</h2>
+						<img src="images/GitHub_pullrequests.png"></img>
+					</div>
+				</section>
+
+				<section>
+					<h2>Wait for feedback...</h2>
+					<div class="fragment fade-in">...</div>
+					<div class="fragment fade-in">...</div>
+					<div class="fragment fade-in">...</div>
+					<div class="fragment fade-in">"Looks good"</div>
+				</section>
+
+				<section>
+					<h2>Summary</h2>
+					<ul>
+						<li class="fragment roll-in">You can find bugs</li>
+						<li class="fragment roll-in">You can fix bugs</li>
+						<li class="fragment roll-in">Branch, test, pull request</li>
+						<li class="fragment roll-in">Most pull requests are short</li>
+						<li class="fragment roll-in">You don't need to be a superstar!</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>End</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
