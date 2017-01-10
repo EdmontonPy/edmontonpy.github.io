@@ -1,0 +1,8 @@
+title: Edmonton.py
+description: The Edmonton Python User Group
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-leap-day
+
+gems:
+  - jekyll-mentions
