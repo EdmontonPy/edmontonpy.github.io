@@ -61,7 +61,7 @@ You can contact us at info@EdmontonPy.com or follow us on [Twitter] [twitter], [
 [slack]:         http://EdmontonPyInvite.herokuapp.com/
 [sup_site]:      http://www.startupedmonton.com      "Startup Edmonton"
 [sup_map]:       http://maps.google.ca/maps?q=Startup+Edmonton,+10359+104+Street+Northwest,+Edmonton,+AB&hl=en&ll=53.545816,-113.499069&spn=0.042482,0.111151&sll=53.545816,-113.499069&sspn=0.042482,0.111151&hq=Startup+Edmonton,+10359+104+Street&hnear=Northwest+Edmonton,+Edmonton,+Division+No.+11,+Alberta&t=m&z=14 "Startup Edmonton Offices"
-[presentations]: http://EdmontonPy.com/presentations "Edmonton.py Presentations"
+[presentations]: new_presentation.md                 "Edmonton.py Presentations"
 [twitter]:       https://twitter.com/EdmontonPy      "Edmonton.py on Twitter"
 [youtube]:       http://www.youtube.com/EdmontonPy   "Edmonton.py on YouTube"
 
