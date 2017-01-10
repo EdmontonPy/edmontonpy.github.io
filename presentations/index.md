@@ -311,7 +311,7 @@
 [51]: http://www.youtube.com/watch?v=6LHF1EEiKqs
 [52]: http://www.youtube.com/watch?v=FNbxAO78Df0
 [53]: 2013-12/IPython_Development_Lessons/
-[54]: http://nbviewer.ipython.org/github/EdmontonPy/presentations/blob/gh-pages/2013-12/IPython_Development_Lessons/Notebook_Talk.ipynb
+[54]: https://github.com/EdmontonPy/edmontonpy.github.io/blob/master/presentations/2013-12/IPython_Development_Lessons/Notebook_Talk.ipynb
 [55]: http://www.youtube.com/watch?v=e9GrVsF928M
 [56]: http://www.youtube.com/watch?v=7Q2Q61xwgCk
 [57]: 2013-11/Contributing_to_Open_Source/
