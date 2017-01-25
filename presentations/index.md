@@ -3,6 +3,8 @@
 ### February 2017
 
 * [News](2017-02/News.md)
+* What's New in Django by [Ashia Zawaduk] [ashia]
+* Python daemons: 101 by Cody Hiar
 
 ### January 2017
 
