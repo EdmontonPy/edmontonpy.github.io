@@ -1,7 +1,7 @@
 ## Welcome to the Edmonton Python Meetup Group
 Our [next meeting] [meetup] is on February 13, 2017 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]) and will feature:
 
-* What's New in Django by [Ashia Zawaduk] [ashia]
+* List Comprehensions by [Abram Hindle] [abram]
 * Python daemons: 101 by Cody Hiar
 
 Past presentations can be found on our [presentations archive page](presentations).
