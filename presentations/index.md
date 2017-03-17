@@ -1,5 +1,14 @@
 ## Meetup Presentations
 
+### April 2017
+
+* [News](2017-04/News.md)
+
+### March 2017
+
+* [News](2017-03/News.md)
+* Exploring NLTK and Numpy with Plagarism detection by [Abram Hindle] [abram]
+
 ### February 2017
 
 * [News](2017-02/News.md)
