@@ -1,5 +1,7 @@
 ## Welcome to the Edmonton Python Meetup Group
-Our [next meeting] [meetup] is on April 10, 2017 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]).
+Our [next meeting] [meetup] is on April 10, 2017 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]) and will feature:
+
+* Mypy and Type Hinting by Eddie Santos
 
 Past presentations can be found on our [presentations archive page](presentations).
 
