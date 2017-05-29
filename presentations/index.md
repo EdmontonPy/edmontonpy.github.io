@@ -3,7 +3,7 @@
 ### June 2017
 
 * [News](2017-06/News.md)
-* A presentation by Dennis Miller
+* Introduction to pytest by Dennis Miller
 
 ### May 2017
 
