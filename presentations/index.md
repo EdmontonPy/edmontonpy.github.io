@@ -4,6 +4,7 @@
 
 * [News](2017-06/News.md)
 * Introduction to pytest by Dennis Miller
+    * [Slides (PDF)] [76]
 
 ### May 2017
 
@@ -353,3 +354,4 @@
 [73]: 2016-03/wxPython/wxPython_code_snippets.zip
 [74]: http://slides.com/danielmouris/deck
 [75]: https://github.com/aaronfay/django-testing-presentation
+[76]: 2017-06/pytest.pdf
