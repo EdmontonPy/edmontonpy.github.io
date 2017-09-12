@@ -1,5 +1,9 @@
 ## Meetup Presentations
 
+### October 2017
+
+* [News](2017-10/News.md)
+
 ### September 2017
 
 * [News](2017-09/News.md)
