@@ -1,6 +1,11 @@
 ## Welcome to the Edmonton Python Meetup Group
 Our [next meeting] [meetup] is on October 23, 2017 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]).
 
+Our talks for this month's meetup will be:
+Creating an API with Django (Stripe’s got nothing on you) by Gezim
+"JavaScript: Where to Start" by Casey
+Python 101 by Dan
+
 Past presentations can be found on our [presentations archive page](presentations).
 
 ## About Us
