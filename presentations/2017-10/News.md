@@ -1,3 +1,3 @@
 # Python News for October
 
-Slides available at https://slides.com/edmontonpy/meetup-october-2017/
+Slides available at [here](https://slides.com/edmontonpy/meetup-october-2017/)
