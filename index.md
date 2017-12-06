@@ -3,7 +3,8 @@ Our [next meeting] [meetup] is on December 11, 2017 at 6:30pm in the [Startup Ed
 
 Our talks for this month's meetup will be:
 
-TBA
+* Edmonton's Open Data Platform and community use cases by David Rauch
+* City of Edmonton projects using Python: route optimization and natural language processing by Usman
 
 Past presentations can be found on our [presentations archive page](presentations).
 
