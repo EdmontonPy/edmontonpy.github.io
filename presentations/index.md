@@ -1,5 +1,8 @@
 ## Meetup Presentations
 
+### December 2017
+* [Slides](http://slides.com/edmontonpy/meetup-december-2017#/)
+
 ### October 2017
 
 * [News](2017-10/News.md)
