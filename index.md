@@ -1,10 +1,9 @@
 ## Welcome to the Edmonton Python Meetup Group
-Our [next meeting] [meetup] is on December 11, 2017 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]).
+Our [next meeting] [meetup] is on January 8, 2018 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]).
 
 Our talks for this month's meetup will be:
 
-* Edmonton's Open Data Platform and community use cases by David Rauch
-* City of Edmonton projects using Python: route optimization and natural language processing by Usman
+* Deployments by Cody Andrew and Ashia Zawaduk
 
 Past presentations can be found on our [presentations archive page](presentations).
 
@@ -62,7 +61,7 @@ Join our email list to get notifications of upcoming meetups and community event
 
 You can contact us at info@EdmontonPy.com or follow us on [Twitter] [twitter], [Meetup.com] [meetup], and [YouTube] [youtube].
 
-[meetup]:        https://www.meetup.com/startupedmonton/events/244474279/ "Next Meeting"
+[meetup]:        https://www.meetup.com/startupedmonton/events/dtflxjyxcblb/ "Next Meeting"
 [slack]:         http://EdmontonPyInvite.herokuapp.com/
 [sup_site]:      http://www.startupedmonton.com      "Startup Edmonton"
 [sup_map]:       http://maps.google.ca/maps?q=Startup+Edmonton,+10359+104+Street+Northwest,+Edmonton,+AB&hl=en&ll=53.545816,-113.499069&spn=0.042482,0.111151&sll=53.545816,-113.499069&sspn=0.042482,0.111151&hq=Startup+Edmonton,+10359+104+Street&hnear=Northwest+Edmonton,+Edmonton,+Division+No.+11,+Alberta&t=m&z=14 "Startup Edmonton Offices"
