@@ -1,5 +1,8 @@
 ## Welcome to the Edmonton Python Meetup Group
-Our [next meeting] [meetup] is on February 12, 2018 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]).
+Our [next meeting] [meetup] is on February 12, 2018 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]) and will feature:
+
+* When Python Attacks: An Introduction to Python-Based Malware by [Josh Reynolds] [joshreynolds]
+* Sniffing and Spoofing Packets with Scapy.py by [John Robbins] [johnrobbins]
 
 Past presentations can be found on our [presentations archive page](presentations).
 
@@ -75,6 +78,8 @@ You can contact us at info@EdmontonPy.com or follow us on [Twitter] [twitter], [
 [dan]:        https://ca.linkedin.com/in/daniel-mouris-baa4b972 "Dan Mouris"
 [daniel]:     http://danielnephin.net              "Daniel Nephin"
 [gezim]:      http://hndigest.com                  "Gezim Hoxha"
+[johnrobbins]:  https://twitter.com/JershMagersh
+[joshreynolds]: https://twitter.com/J0bbins
 [lewis]:      https://twitter.com/lgunsch          "Lewis Gunsch on Twitter"
 [matthew]:    https://github.com/MatthewDarling    "Matthew Darling on GitHub"
 [scott]:      https://twitter.com/ScottBarkman     "Scott Barkman on Twitter"
