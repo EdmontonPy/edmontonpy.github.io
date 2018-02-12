@@ -1,5 +1,11 @@
 ## Meetup Presentations
 
+### February 2018
+* [Slides](http://slides.com/edmontonpy/meetup-february-2018/)
+
+### January 2018
+* [Slides](http://slides.com/edmontonpy/january-2018/)
+
 ### December 2017
 * [Slides](http://slides.com/edmontonpy/meetup-december-2017#/)
 
