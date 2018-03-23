@@ -1,5 +1,8 @@
 ## Welcome to the Edmonton Python Meetup Group
-Our [next meeting] [meetup] is on April 9, 2018 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]).
+Our [next meeting] [meetup] is on April 9, 2018 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]) and will feature:
+
+* Graphics by Andrew Whittle
+* PyGame by [Dan Mouris](dan)
 
 Past presentations can be found on our [presentations archive page](presentations).
 
