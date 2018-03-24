@@ -5,6 +5,9 @@
 
 ### January 2018
 * [Slides](http://slides.com/edmontonpy/january-2018/)
+* Deploying Django on a VPS by [Cody Hiar] [cody]
+    * [Slides] [79]
+    * [Code] [80]
 
 ### December 2017
 * [Slides](http://slides.com/edmontonpy/meetup-december-2017#/)
@@ -40,7 +43,9 @@
 
 * [News](2017-02/News.md)
 * List Comprehensions by [Abram Hindle] [abram]
-* Python daemons: 101 by Cody Hiar
+* Python daemons: 101 by [Cody Hiar] [cody]
+    * [Slides] [77]
+    * [Code] [78]
 
 ### January 2017
 
@@ -299,6 +304,7 @@
 [brian]:      https://twitter.com/bforst           "Brian Forst on Twitter"
 [burkhard]:   http://seite9.de                     "Burkhard Ritter"
 [chris]:      http://cwant.ca                      "Chris Want"
+[cody]:       http://www.codyhiar.com              "Cody Hiar"
 [curtis]:     https://twitter.com/ccollicutt       "Curtis Collicutt on Twitter"
 [dan]:        https://ca.linkedin.com/in/daniel-mouris-baa4b972 "Dan Mouris"
 [daniel]:     http://danielnephin.net              "Daniel Nephin"
@@ -372,3 +378,7 @@
 [74]: http://slides.com/danielmouris/deck
 [75]: https://github.com/aaronfay/django-testing-presentation
 [76]: 2017-06/pytest.pdf
+[77]: https://docs.google.com/presentation/d/12kZX6yD-gvxpRbJK5h-FwxhUhAP4lsLJESi7qg5sEwg/edit?usp=sharing
+[78]: https://github.com/thornycrackers/python-daemon
+[79]: https://docs.google.com/presentation/d/1htURhOWd9zAjDkc0KeSg9QKh1-AYnbndja6LyO_7aZA/edit?usp=sharing
+[80]: https://github.com/thornycrackers/django_vps_setup
