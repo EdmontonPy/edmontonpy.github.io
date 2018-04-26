@@ -1,8 +1,8 @@
 ## Welcome to the Edmonton Python Meetup Group
-Our [next meeting] [meetup] is on April 9, 2018 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]) and will feature:
+Our [next meeting] [meetup] is on May 14, 2018 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]) and will feature:
 
-* Graphics by Andrew Whittle
-* PyGame by [Dan Mouris](dan)
+* Anatomy of an Open Source Python Project: From Idea to World Domination by [Chris Want](chris)
+* Language Fundamentals - Python Types by Dustin Grue
 
 Past presentations can be found on our [presentations archive page](presentations).
 
@@ -60,7 +60,7 @@ Join our email list to get notifications of upcoming meetups and community event
 
 You can contact us at info@EdmontonPy.com or follow us on [Twitter] [twitter], [Meetup.com] [meetup], and [YouTube] [youtube].
 
-[meetup]:        https://www.meetup.com/startupedmonton/events/248558600/
+[meetup]:        https://www.meetup.com/startupedmonton/events/dtflxjyxhbsb/
 [slack]:         http://EdmontonPyInvite.herokuapp.com/
 [sup_site]:      http://www.startupedmonton.com      "Startup Edmonton"
 [sup_map]:       http://maps.google.ca/maps?q=Startup+Edmonton,+10359+104+Street+Northwest,+Edmonton,+AB&hl=en&ll=53.545816,-113.499069&spn=0.042482,0.111151&sll=53.545816,-113.499069&sspn=0.042482,0.111151&hq=Startup+Edmonton,+10359+104+Street&hnear=Northwest+Edmonton,+Edmonton,+Division+No.+11,+Alberta&t=m&z=14 "Startup Edmonton Offices"
