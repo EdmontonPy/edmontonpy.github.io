@@ -1,7 +1,7 @@
 ## Welcome to the Edmonton Python Meetup Group
 Our [next meeting] [meetup] is on May 14, 2018 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]) and will feature:
 
-* Anatomy of an Open Source Python Project: From Idea to World Domination by [Chris Want](chris)
+* Anatomy of an Open Source Python Project: From Idea to World Domination by [Chris Want][chris]
 * Language Fundamentals - Python Types by Dustin Grue
 
 Past presentations can be found on our [presentations archive page](presentations).
