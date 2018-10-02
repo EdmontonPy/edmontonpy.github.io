@@ -61,7 +61,7 @@ Join our email list to get notifications of upcoming meetups and community event
 You can contact us at info@EdmontonPy.com or follow us on [Twitter] [twitter], [Meetup.com] [meetup], and [YouTube] [youtube].
 
 [meetup]:        https://www.meetup.com/startupedmonton/events/dtflxjyxnblb/
-[slack]:         http://EdmontonPyInvite.herokuapp.com/
+[slack]:         https://edmontonpy.herokuapp.com/
 [sup_site]:      http://www.startupedmonton.com      "Startup Edmonton"
 [sup_map]:       http://maps.google.ca/maps?q=Startup+Edmonton,+10359+104+Street+Northwest,+Edmonton,+AB&hl=en&ll=53.545816,-113.499069&spn=0.042482,0.111151&sll=53.545816,-113.499069&sspn=0.042482,0.111151&hq=Startup+Edmonton,+10359+104+Street&hnear=Northwest+Edmonton,+Edmonton,+Division+No.+11,+Alberta&t=m&z=14 "Startup Edmonton Offices"
 [twitter]:       https://twitter.com/EdmontonPy      "Edmonton.py on Twitter"
@@ -70,7 +70,7 @@ You can contact us at info@EdmontonPy.com or follow us on [Twitter] [twitter], [
 [aaron]:      http://aaronfay.ca                   "Aaron Fay"
 [abram]:      http://softwareprocess.es            "Abram Hindle"
 [aden]:       https://twitter.com/adengrue         "Aden Grue on Twitter"
-[ashia]:      https://twitter.com/laidibugz        "Ashia Zawaduk on Twitter"
+[ashia]:      https://twitter.com/ashiazed        "Ashia Zawaduk on Twitter"
 [brian]:      https://twitter.com/bforst           "Brian Forst on Twitter"
 [burkhard]:   http://seite9.de                     "Burkhard Ritter"
 [chris]:      http://cwant.ca                      "Chris Want"
