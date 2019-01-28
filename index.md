@@ -1,5 +1,8 @@
 ## Welcome to the Edmonton Python Meetup Group
-Our [next meeting] [meetup] is on January 14, 2019 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]).
+Our [next meeting] [meetup] is on February 11, 2019 at 6:30pm in the [Startup Edmonton] [sup_site] offices ([#301, 10359-104 St, Edmonton, AB] [sup_map]).
+
+- Super Cool Deployments with Fabric 2 by Lewis Gunsch
+- Google Cloud Functions by Gord Nuttal
 
 Past presentations can be found on our [presentations archive page](presentations).
 
